@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body { background-color: white; font: 13.34px arial, helvetica, clean, sans-serif; *font-size: small; text-align: center; }
 h1, h2, h3, h4, h5, h6 { font-size: 100%; }
-h1 { margin-bottom: 1em; }
+h1 {margin-bottom: 1em;}
 p { margin: 1em 0; }
 a { color: #00a; text-decoration: none; }
 a:hover { color: black; text-decoration: underline; }
@@ -30,6 +30,7 @@ ul.posts span { color: #aaa; font-family: Monaco, "Courier New", monospace; font
 .site .footer .rss img { border: 0; }
 
 /* post */
+#post h1{font-size: 1.5em;}
 #post pre { border: 1px solid #ddd; background-color: #eef; padding: 0 .4em; }
 #post ul, #post ol { margin-left: 1.35em; }
 #post code { border: 1px solid #ddd; background-color: #eef; font-size: 85%; padding: 0 .2em; }
