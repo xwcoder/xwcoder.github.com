@@ -5,6 +5,8 @@ published: true
 tags: [css设计指南, 书评]
 ---
 # 书评：CSS设计指南（第3版）#
+![stylin with css](http://img3.douban.com/mpic/s24262786.jpg)
+
 读[这本书](http://www.ituring.com.cn/book/1111)是想尝试[图灵社区](http://www.ituring.com.cn)「在线翻译」的创新方式。
 总的来说「在线翻译」的方式有助于翻译的质量，能在成书前就得到读者的反馈，这是好事，在本书的评论里就有不少反馈。
 反馈里有一部分是typo，还有一部分是对屌丝浏览器的吐槽。还有一小部分是对某个点的补充和深入，比如BFC的概念，这是书里没有提及的，
