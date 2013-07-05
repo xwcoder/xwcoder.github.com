@@ -81,9 +81,9 @@ ibus是在类unix操作系统中是一个为了多语言输入的输入法框架
 window下的发行版叫'小狼毫'，Mac发行版叫'鼠须管'，linux发行版叫做'中州韵'。有ibus
 和fcitx版本。rime已加入到ubuntu software center，对于ubuntu 12.10及以上版本可以
 通过`sudo apt-get install ibus-rime`安装。
-项目地址是[rime](https://code.google.com/p/rimeime/)
+项目地址是[rime](https://code.google.com/p/rimeime/)。
 
-== 参考 ==
+## 参考
 (https://zh.opensuse.org/index.php?title=Packaging_Input_Method_Framework_and_Engines&variant=zh)
 (http://my.oschina.net/gschen/blog/133447)
 [https://code.google.com/p/rimeime/](https://code.google.com/p/rimeime/)
