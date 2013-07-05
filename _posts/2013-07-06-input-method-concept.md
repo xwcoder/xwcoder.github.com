@@ -84,6 +84,6 @@ window下的发行版叫'小狼毫'，Mac发行版叫'鼠须管'，linux发行�
 项目地址是[rime](https://code.google.com/p/rimeime/)。
 
 ## 参考
-(https://zh.opensuse.org/index.php?title=Packaging_Input_Method_Framework_and_Engines&variant=zh)
-(http://my.oschina.net/gschen/blog/133447)
-[https://code.google.com/p/rimeime/](https://code.google.com/p/rimeime/)
+* [https://zh.opensuse.org/index.php?title=Packaging_Input_Method_Framework_and_Engines&variant=zh](https://zh.opensuse.org/index.php?title=Packaging_Input_Method_Framework_and_Engines&variant=zh)
+* [http://my.oschina.net/gschen/blog/133447](http://my.oschina.net/gschen/blog/133447)
+* [https://code.google.com/p/rimeime/](https://code.google.com/p/rimeime/)
