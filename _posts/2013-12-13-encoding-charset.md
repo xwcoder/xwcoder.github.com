@@ -187,6 +187,44 @@ Char. number range     |        UTF-8 octet sequence
 同样这也解释了多保存'移动'两个字后就不会出现乱码，因为移动按GB系编码后不会与utf-8撞码，
 当试图使用utf-8读取时会发生错误，文本编辑器就会尝试使用其他的编码方式读取。
 
+#### UTF-16
 
+UTF-16的RFC编号是2781，[RFC2781](http://www.ietf.org/rfc/rfc2781.txt)
+
+假设U是某字符的code point，UTF-16的编码原则是：
+
+1. 如果U < 0x10000, 就使用两个字节表示U的值，高位用0补齐
+2. 如果0x10000 <= U <= 0x10FFFF，就使用两个16-bit表示(4字节),
+前两个字节取值范围在0xD800到0xDBFF, 被称作high-half zone。
+后两个字节取值范围在0xDC00到0xDFFF, 被称作low-half zone。
+3. 如果U > 0x10FFFF, 那么不能使用UTF-16进行编码。
+
+详细的编码流程是：
+1. 如果U < 0x10000，使用两个字节表示U的值，高位用0补齐。结束。
+2. 令U' = U - 0x10000. 因为U <= 0x10FFFF, 那么U' <= 0xFFFFF, 所以U'就可以用20个bit表示。
+3. 使用两个16-bit，w1和w2, 令w1=0xD800, w2=0xDC00，每一个16-bit中有10个bit可以用于编码，一共有20个bit位可供使用编码。
+4. 将U'(20-bit表示的)高位的10个bit填充到w1中，将U'低位的10个bit填充到w2中。结束。
+
+图形表示这个过程如下:
+<pre>
+U' = yyyyyyyyyyxxxxxxxxxx
+W1 = 110110yyyyyyyyyy
+W2 = 110111xxxxxxxxxx
+</pre>
+
+解码流程是:
+读取两个字节w1，读取紧随w1的连个字节w2。
+
+1. 如果w1 < 0xD800或者w1 > 0xDFFF, w1的值就是code point。结束。
+2. 判断w1是否在0xD800和0xDBFF之间, 如果不在，解析报错。结束。
+3. 如果没有w2或者w2不在0xDC00和0xDFFF之间，解析报错。结束。
+4. 用w1的后10个bit和w2的后10个bit组成U'(20个bit)。
+5. 令U = 0x10000 + U'，得到U。结束
+
+#### UTF-32
+
+UTF-32就是使用4个字节表示code point，无需像UTF-16和UTF-8那样进行转换。
+
+#### BOM
 
 
