@@ -125,6 +125,36 @@ UCS-2最多能表示2^16=65536个字符。UCS-4中只使用了31位，最高位�
 每个panel根据第三高字节分为256个row，每行有256个cells。
 第0号group和第0号panel被称作**BMP**(Basic Multilingual Plane)。很明显BMP去掉高位的两个零字节就得到UCS-2。
 
+在码表上每个字符对应的值称作code point。
+
 ### UTF-8、UTF-16、UTF-32和BOM
 
-UTF-8的全称是"8-bit  Unicode Transformation Format"。
+在介绍这部分之前，先简单介绍一下IETF。IETF(Internet Engineering Task Force)中文名是互联网工程任务组，
+负责互联网标准的开发和推动。当前绝大多数国际互联网技术标准出自IETF，比如著名的http协议，代号是RFC2616。
+比如前端工程师都熟悉的JSON格式也纳入到了IETF的维护, 代号是RFC4627。
+
+UTF-8的全称是"8-bit  Unicode Transformation Format"。由IETF维护，代号是[RFC3629](http://www.ietf.org/rfc/rfc3629.txt)。
+UTF-8是unicode(ISO-10646)的一种存储/传输方式。还记得前文中说到的文本文件存储的大致过程吗，
+简单理解UTF-8就是第二步中的转换算法，由二进制串A(unicode code point)经过计算(UTF-8)得到二进制串B。
+
+UTF-8的编码规则很简单，参照如下对照表。(表一)
+<pre>
+Char. number range     |        UTF-8 octet sequence
+      (hexadecimal)    |              (binary)
+   --------------------+-----------------------------------------
+   0000 0000-0000 007F | 0xxxxxxx
+   0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+   0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+   0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+</pre>
+
+以简体中文'中'字为例，按照RFC3629的描述，编码过程是：
+
+1. 通过查表得到'中'的code point是4e2d，二进制形式是'100111000101101'。
+2. 对照表一第一列，'中'在第三行，对应的使用的UTF-8形式是1110xxxx 10xxxxxx 10xxxxxx
+
+
+1. 对于单字节的符号，字节的第一位设为0，后面7位为这个符号的unicode码。因此对于英语字母，UTF-8编码和ASCII码是相同的。
+2. 对于n字节的符号（n>1），第一个字节的前n位都设为1，第n+1位设为0，后面字节的前两位一律设为10。
+剩下的未使用的二进制位，从低位到高位填充这个符号的unicode码。未填充的用0补齐。
+
