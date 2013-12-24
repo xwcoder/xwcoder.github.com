@@ -5,12 +5,12 @@ published: true
 tags: [encoding charset unicode ucs UTF-8 UTF-16 编码 字符集]
 ---
 
-## 基本概念
-
 这篇文章分两个部分。第一部分梳理一下字符集和编码的基础知识，比如unicode、ucs、utf-8、utf-16等的关系，
 在这部分中主要以文本文件为例，相关内容同样适用于字节流,
 第二部分整理一下前端工程师可能会遇到的一些编码问题。我的初衷是想能穷尽所有问题，但是我又知道这是不可能的，
 所以只能尽量多的把搜集到的以及遇到过的问题整理出来。
+
+## 基本概念
 
 ### 字符集与编码
 
@@ -410,5 +410,43 @@ IE会使用新的编码重新渲染页面，造成页面显示乱码)。
         }, 1e3 );
     };
 
-### 静态文件加载
+### 文件加载
 
+当加载html、css、javasript文件时，浏览器需要知道加载文件的编码格式，然后采用相应的编码格式进行解析渲染/处理。
+如果使用了一个'错误'的编码处理文件就会产生乱码问题，这可能是我们遇到最多的乱码情况。
+
+#### css
+
+浏览器应该使用哪种编码处理css文件在css2.1规范的[第四节](http://www.w3.org/TR/CSS2/syndata.html#charset)有明确定义，
+按照优先级从高到底：
+
+1. http响应头中, content-type域的charset属性。<code>Content-Type: text/html; charset=gbk</code>
+2. BOM / @charset
+3. <code>&lt;link&gt;</code>标签的charset属性，<code>&lt;link charset=""&gt;</code>
+4. 当前页面编码
+5. 使用UTF-8处理
+
+#### html
+
+没有找到关于浏览器处理html文件编码的相关规范说明。有两个地方可以设置html文件的编码格式，
+按优先级从高到低：
+
+1. http响应头中, content-type域的charset属性。<code>Content-Type: text/html; charset=gbk</code>
+2. html页面中的meta标签中指定charset。<code>&lt;meta charset="gbk" /&gt;</code>
+
+对于没有进行以上两种设置的情况，浏览器会不会使用BOM，或者像vim一样依次尝试使用不同编码，
+或者使用操作系统默认编码，或者像处理css的第5条干脆默认使用某种编码，完全取决于各浏览器厂商。
+所以要避免html不进行编码设置的情况。
+
+#### javascript
+
+像html一样，也没有找到浏览器处理js文件编码的相关规范说明。不过有一个经验证的规则，
+按优先级从高到低：
+
+1. http响应头中, content-type域的charset属性。<code>Content-Type: text/html; charset=gbk</code>
+2. &lt;script&gt;标签的charset属性。<code>&lt;script src="" charset="gbk"&gt;&lt;script&gt;</code>
+3. 当前页面编码
+
+## 结束语
+
+## 参考资料
