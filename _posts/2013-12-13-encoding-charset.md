@@ -316,6 +316,8 @@ escape的编码规则如下：
         escape( '中' ) // "%u4E2D" '中'的裸码是U+4e2d
         escape( 'ü' ) // "%FC"  'ü'的裸码是U+00fc
 
+相应的解码函数是unescape。
+
 #### encodeURI
 
 encodeURI是js真正用来对URL进行编码的函数。除了常见符号，对一些在网址中有特殊含义的字符也不进行编码，
@@ -326,16 +328,87 @@ encodeURI采用UTF-8的方式进行编码，然后在编码后的每个字节前
         encodeURI( 'http://so.tv.sohu.com/mts?wd=生活爆炸' );
             "http://so.tv.sohu.com/mts?wd=%E7%94%9F%E6%B4%BB%E7%88%86%E7%82%B8"
 
+相应的解码函数是decodeURI。
+
 #### encodeURIComponent
 
 encodeURIComponent与encodeURI的区别是，它对URL的组成部分进行编码，所以encodeURI不会编码的一些字符，
 encodeURIComponent会行进编码，比如'; / ? : @ & = + $ , #'，编码方式与encodeURI是一致的。
 
+相应的解码函数是decodeURIComponent。
+
+三个函数不进行编码的字符见下表。
 <pre>
-|                    | 不编码字符                                                                     |
-|--------------------|--------------------------------------------------------------------------------|
-| escape             | *，+，-，.，/，@，_，0-9，a-z，A-Z                                             |
-| encodeURI          | !，#，$，&，&apos;，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z |
-| encodeURIComponent | !， &apos;，(，)，*，-，.，_，~，0-9，a-z，A-Z                                 |
+|--------------------|-----------------------------------------------------|
+|                    | none encode characters                              |
+|--------------------|-----------------------------------------------------|
+| escape             | * + - . / @ _ 0-9 a-z A-Z                           |
+|--------------------|-----------------------------------------------------|
+| encodeURI          | ! # $ & ' ( ) * + , - . / : ; = ? @ _ ~ 0-9 a-z A-Z |
+|--------------------|-----------------------------------------------------|
+| encodeURIComponent | ! '( ) * - . _ ~ 0-9 a-z A-Z                        |
+|--------------------|-----------------------------------------------------|
 </pre>
+
+
+### url编码
+
+在[RFC1738](http://www.ietf.org/rfc/rfc1738.txt)中对url编码做了如下规定：
+
+> "...Only alphanumerics [0-9a-zA-Z], the special characters "$-_.+!*'()," [not including the quotes - ed],
+> and reserved characters used for their reserved purposes may be used unencoded within a URL."    
+> “只有字母和数字[0-9a-zA-Z]、一些特殊符号“$-_.+!*'(),”[不包括双引号]、以及某些保留字，才可以不经过编码直接用于URL。”
+
+这只规定了出现在url中的哪些字符不用编码，对于需要编码的字符没有规定使用哪么编码方式，
+而是交给应用程序(浏览器)自己处理。至于各主要浏览器怎么处理，阮一峰在[关于URL编码](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
+这篇文章中做了总结，本文这部分内容主要来自阮一峰的这篇文章，只验证了IE和firefox。
+
+#### 情况1：网址路径中包含汉字
+
+例如<code>http://zh.wikipedia.org/wiki/春节</code>    
+**结论是：**网址路径的编码，用的是utf-8编码，每个字节前加'%'
+    http://zh.wikipedia.org/wiki/%E6%98%A5%E8%8A%82
+
+#### 情况2：查询字符串包含汉字
+
+例如<code>http://www.baidu.com/s?wd=春节</code>    
+**结论是：**查询字符串的编码，用的是操作系统的默认编码，比如GB系。
+不同点是firefox会在每个字节前加'%'。
+
+#### 情况3：GET方法生成的URL包含汉字
+
+例如<code><a>http://www.baidu.com/s?wd=春节</a></code>
+
+    http://www.baidu.com/s?wd=%B4%BA%BD%DA //页面是GBK编码
+    http://www.baidu.com/s?wd=%E6%98%A5%E8%8A%82 //页面是UTF-8编码
+**结论是：**GET和POST方法的编码，用的是网页的编码，每个字节前加'%'。
+
+#### 情况4：ajax调用的URL包含汉字
+
+举例：
+
+        url = url + "?q=" +document.myform.elements[0].value; // 假定用户在表单中提交的值是“春节”这两个字
+        http_request.open('GET', url, true);       
+**结论是：**IE总是采用GB2312编码（操作系统的默认编码），而Firefox总是采用utf-8编码。
+
+**tip:**对于这种没有相应规范或者规范不明确的情况，怎么处理完全取决于浏览器厂商, 所以没有必要深究。
+我们要做的是规避这种情况。
+
+#### form表单
+
+之所以form表单单独拿出来说，是因为form表单有个特殊属性可以指定编码'accept-charset', 
+比如页面是gbk编码，指定<code>accept-charset="utf-8"</code>, 提交时数据会被按照utf-8进行编码。
+
+低版本的IE是不支持accept-charset属性的，一个替代方案提交前将document.charset需要的编码，
+定时一段时间再将document.charset设置为初始时的编码(否则使用浏览器前进后退按钮，或者页面内锚点跳转时，
+IE会使用新的编码重新渲染页面，造成页面显示乱码)。
+    
+    form.onsubmit = function () {
+        document.charset = 'utf-8';  
+        setTimeout( function () {
+            document.charset = 'gbk';  
+        }, 1e3 );
+    };
+
+### 静态文件加载
 
