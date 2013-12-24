@@ -8,6 +8,7 @@ tags: [encoding charset unicode ucs UTF-8 UTF-16 编码 字符集]
 ## 基本概念
 
 这篇文章分两个部分。第一部分梳理一下字符集和编码的基础知识，比如unicode、ucs、utf-8、utf-16等的关系，
+在这部分中主要以文本文件为例，相关内容同样适用于字节流,
 第二部分整理一下前端工程师可能会遇到的一些编码问题。我的初衷是想能穷尽所有问题，但是我又知道这是不可能的，
 所以只能尽量多的把搜集到的以及遇到过的问题整理出来。
 
@@ -123,7 +124,7 @@ UCS-2最多能表示2^16=65536个字符。UCS-4中只使用了31位，最高位�
 每个panel根据第三高字节分为256个row，每行有256个cells。
 第0号group和第0号panel被称作**BMP**(Basic Multilingual Plane)。很明显BMP去掉高位的两个零字节就得到UCS-2。
 
-在码表上每个字符对应的值称作code point。
+在码表上每个字符对应的值称作code point。也可以叫做裸码，意思是没有经过转换的码值。
 
 ### UTF-8、UTF-16、UTF-32和BOM
 
@@ -133,7 +134,9 @@ UCS-2最多能表示2^16=65536个字符。UCS-4中只使用了31位，最高位�
 
 #### UTF-8
 
-UTF-8的全称是"8-bit  Unicode Transformation Format"。由IETF维护，代号是[RFC3629](http://www.ietf.org/rfc/rfc3629.txt)。
+UTF的全称是'Unicode Transformation Format'。
+
+UTF-8的全称是'8-bit  Unicode Transformation Format'。由IETF维护，代号是[RFC3629](http://www.ietf.org/rfc/rfc3629.txt)。
 UTF-8是unicode(ISO-10646)的一种存储/传输方式。还记得前文中说到的文本文件存储的大致过程吗，
 简单理解UTF-8就是第二步中的转换算法，由二进制串A(unicode code point)经过计算(UTF-8)得到二进制串B。
 
@@ -232,7 +235,7 @@ Big endian认为第一个字节是最高位字节，Little endian则相反。比
 
 我们可以在字节流的开头加入两个特殊字节来表示字节的顺序，这两个特殊字节就是FF FE，
 如果字节流的头两个字节是FEFF就表示是Big endian，如果头两个字节是FFFE就表示是Little endian。
-这两个字节就是BOM(byte-order mark)—字节顺序标记，BOM是位于码点U+FEFF的字符名称。
+这两个字节的就是BOM(byte-order mark)—字节顺序标记。
 在一些旧的文档中会说到U+FEFF这个字符是'Zero Width No-Break Space'(零宽度非换行空格)，
 现在零宽度非换行空格有了新的定义，来看一下wikipedia上说明。
 
@@ -242,4 +245,61 @@ Big endian认为第一个字节是最高位字节，Little endian则相反。比
 > 就如它的名称——字节序标记(BOM)——所表示的一样；除此以外的用法已被舍弃。
 > 取而代之的是，使用U+2060来表达零宽度非换行空格。
 
+所以UTF-16,UTF-32还有两个格式UTF-16BE，UTF-LE，UTF-32BE，UTF-32LE。
+<pre>
+| Name                | UTF-8 | UTF-16 | UTF-16BE | UTF-16LE | UTF-32 | UTF-32BE | UTF-32LE |
+|---------------------|-------|--------|----------|----------|--------|----------|----------|
+| Smallest code point | 0000  | 0000   | 0000     | 0000     | 0000   | 0000     | 0000     |
+|                     |       |        |          |          |        |          |          |
+|                     |       |        |          |          |        |          |          |
+|                     |       |        |          |          |        |          |          |
+|                     |       |        |          |          |        |          |          |
+|                     |       |        |          |          |        |          |          |
+</pre>
 
+对于UTF-8编码的文件是没有字节顺序问题的，那么可以用BOM来表示此文件是否为UTF-8编码的。
+当文件的前三个字节是EF BB BF，就表示此文件是UTF-8编码的。
+很多windows程序(比如记事本)采用这种方式。但是在类Unix系统中，这种作法则不被建议采用。
+因为对无法识别这三个字符的程序会产生影响。
+
+好了，到现在讲了字符集、码表的相关知识，也粗略介绍了几种常用的字符集和编码方式。
+接下来看看前端工程经常使用到的编码知识和经常遇到的编码问题。
+
+## 前端工程师经常遭遇的编码问题
+
+前端工程师会遇到很多编码问题，比如静态文件的编码，动态接口的编码，提交数据的编码等等。
+
+### javascript的内码
+
+像java一样，javascript使用的内码是unicode。更准确一点说是使用的UCS-2(没找到直接证明，通过实验得到，可能不准确)，
+一个code point前边加上'\u'就标示相应的字符。所以'\u4e2d'与'中'是相等的。
+
+        '\u4e2d' == '中' //true
+
+通常js压缩工具也会把程序中的中文翻译成unicode码的形式。
+
+一个将字符串转换成相应unicode格式串的函数：
+
+        function toUnicodeHex ( s ) { 
+            if ( !s ) {
+                return '';
+            }
+            var r = [];
+            for ( var i = 0, len = s.length; i < len; i++ ) {
+                r[ i ] = ( '00' + s.charCodeAt( i ).toString( 16 ) ).slice( -4 );
+            }
+            return '\\u' + r.join( '\\u' );
+        }
+
+### escape和encodeURI和encodeURIComponent
+
+escape的编码规则如下：
+
+1. 除ASCII字母、数字、标点符号'@ * _ + - . /'以外，对其他所有字符进行编码
+2. 对于编码字符使用
+
+2. 采用unicode裸码(UCS-2)，对于U+0000和U+00FF之间的字符，在转换后的裸码前加'%'，
+其他字符在裸码前加'%u'
+
+        escape( '中' ) // "%u4E2D"
+        escape( '' )
