@@ -304,8 +304,7 @@ UTF-8编码的文件是没有字节顺序问题的，那么可以用BOM来标识
 
 ### javascript的内码
 
-像java一样，javascript使用的内码是unicode。更准确一点说是使用的UCS-2
-(没找到直接规范说明，通过实验得到，可能不准确)，
+像java一样，javascript使用的内码是unicode。更准确一点说是使用的UCS-2。
 javascript中，一个unicode code point前边加上'\u'就标示相应的字符。所以'\u4e2d'与'中'是相等的。
 
     '\u4e2d' == '中' //true
