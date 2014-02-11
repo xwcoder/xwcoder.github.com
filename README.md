@@ -5,7 +5,7 @@ personal blog
 
 ##Catalog##
 
-* 2013-01-06 2012总结 
+* [2013-01-06 2012总结](blob/master/_posts/2013-01-06-2012-summary.md)
 
 ## License ##
 
