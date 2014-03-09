@@ -1,3 +1,5 @@
+.gitignore
 _site
 server
-.gitignore
+app.js
+node_modules
