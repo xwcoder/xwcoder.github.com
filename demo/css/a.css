@@ -243,7 +243,7 @@ input[type="button"] {
     padding: 10px;
 }
 .logo img {
-    width: 50px;
+    width: 80px;
 }
 /**
  * car-list-index
@@ -269,6 +269,16 @@ input[type="button"] {
     top: 50%;
     right: 10px;
     font-size: 24px;
+}
+.article-list {
+    padding: 10px 0 10px 10px;
+}
+.article-list li {
+    border-bottom: 1px dotted #e2e2e2;
+}
+.article-list li a {
+    display: block;
+    padding: 8px 0;
 }
 /**
  * car-list
@@ -394,6 +404,9 @@ input[type="button"] {
 .page-repaire-order {
     background: #f2f2f2;
 }
+.page-repaire-order h2 {
+    padding: 0 10px;
+}
 /**
  * order-list
  */
@@ -444,6 +457,25 @@ input[type="button"] {
 .page-order-list .on .list-item-content {
     height: 205px;
 }
+/**
+.page-order-list .nav-list li {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    background: #1471b8;
+    background: -webkit-linear-gradient(#4890c8,#1471b8);
+    background: -moz-linear-gradient(#4890c8,#1471b8);
+    background: linear-gradient(#4890c8,#1471b8);
+}
+.page-order-list .nav-list li a {
+    display: block;
+    color: #fff;
+}
+**/
 /**
  * page-user
  */
@@ -535,6 +567,14 @@ input[type="button"] {
 }
 .page-article article .txt {
     padding: 10px;
+    line-height: 2;
+    color: rgba(62,62,62,1);
+}
+.page-article article p {
+    padding: 10px 0;
+}
+.page-article article em {
+    color: rgba(200, 0, 0, 1);
 }
 .page-article article .pic {
     padding: 10px 0;
