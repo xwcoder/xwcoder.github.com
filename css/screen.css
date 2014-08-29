@@ -31,7 +31,7 @@ ul.posts span { color: #aaa; font-family: Monaco, "Courier New", monospace; font
 
 /* post */
 #post h1{font-size: 1.5em;}
-#post pre { border: 1px solid #ddd; background-color: #eef; padding: 0 .4em; }
+#post pre { border: 1px solid #ddd; background-color: #eef; padding: 0 .4em; overflow: auto; }
 #post ul, #post ol { margin-left: 1.35em; }
 #post code { border: 1px solid #ddd; background-color: #eef; font-size: 85%; padding: 0 .2em; }
 #post pre code { border: none; overflow: auto;}
