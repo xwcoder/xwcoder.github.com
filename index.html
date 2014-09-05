@@ -1,12 +1,5 @@
----
-layout: default
-title: 海魂衫
----
-<div id="home">
-  <h1>Blog Posts</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+<!DOCTYPE html>
+<script>
+    var id = parseInt( location.search.substring( 1 ) )
+    location.replace( 'https://github.com/xwcoder/xwcoder.github.com/issues' + ( id ? '/' + id : '' ) );
+</script>
