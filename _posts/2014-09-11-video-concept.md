@@ -4,7 +4,7 @@ title: 视频相关概念
 published: true
 tags: [video-encoding video-concept mp4 h.264]
 ---
-当我们谈到视频文件时，经常会听到/说到很多名词，像码率、码流、mp4、avi、rmvb、h.264、webM、ts流、m3u8等等。
+当我们谈到视频文件时，经常会听到/说到很多名词，像码率、码流、mp4、avi、rmvb、h.264、webM、m3u8等等。
 名词太多，容易混淆。今天来梳理一下视频相关的概念。
 
 ## 码率、码流
@@ -13,7 +13,7 @@ tags: [video-encoding video-concept mp4 h.264]
 
 视频码率就是指视频文件在单位时间内使用的数据量。简单理解就是要播放一秒的视频需要多少数据，从这个角度就不难理解
 通常码率越高视频质量也越好，相应的文件体积也会越大。码率、视频质量、文件体积是正相关的。但当码率超过一定数值后，
-对图像的质量影响就不大了。几乎所有的编码格式都会追求用最低的码率达到最少的失真(最好的清晰度), 围绕这个诉求衍生
+对图像的质量影响就不大了。几乎所有的编码算法都在追求用最低的码率达到最少的失真(最好的清晰度), 围绕这个诉求衍生
 出了固定码率(cbr)和可变码率(vbr)。
 
 <pre>
@@ -38,7 +38,7 @@ tags: [video-encoding video-concept mp4 h.264]
 3. 能够解码AAC音频文件，进行声音的播放。
 
 当然还有很多其他工作要做，比如显示字幕，比如音画同步等。我们要理解的是，要播放视频，不光要能够解析视频容器,从中提取出各部分的数据，
-还要有相应的音视频编解码器。
+还要有相应的音视频解码器。
 
 多媒体容器格式一般都包括三部分的数据: 文件头部分、索引部分、多媒体数据部分。
 
@@ -161,17 +161,14 @@ h.26x系列是由"ITU国际电信联盟"主导的编码系列。
 </table>
 
 作为明星格式，h.264是目前最流行的视频编码格式。它有很多优点，编码后的文件体积小，画质高。蓝光技术(Blue-ray)就采用
-这种格式。h.264的硬件编解码器随处可见，几乎所有的高清摄像机、iphone、ipad、android手机上都含有h.264硬件编解码器。
-
-除了ITU和ISO开发的行业标准外，还出现了几种专用于因特网流媒体应用、广受欢迎的专有解决方案，其中包括Real Networks Real Video(RV10)、
-Microsoft Windows Media Video 9(wmv9)系列、ON2 VP6以及Nancy等等。
+这种格式。h.264的硬件解码器随处可见，几乎所有的高清摄像机、iphone、ipad、android手机上都含有h.264硬件解码器。
 
 多媒体数据符合的规范信息可以包括视频的分辨率、帧率、音频的采样率等。
 
 ### 索引部分
 
 多媒体数据通常会分为若干块，各块数据的储存可能是不连续的，因此需要建立索引。这样可以方便进行进度拖动等操作。视频文件
-通常都比较大，播放时不能全度读入内存，拖动时可以根据索引信息加在对应的多媒体数据。
+通常都比较大，播放时不能全度读入内存，拖动时可以根据索引信息加载对应的多媒体数据。
 
 ### 多媒体数据部分
 
@@ -253,6 +250,139 @@ html5提供了一个video标签，使页面可以不用依赖第三方插件(比
 格式的视频。
 
 目前h.264是最流行的视频编码格式。但是h.264是一种专利格式，它的专利被一家称为MPEG-LA的公司控制。MPEG-LA专门负责管理与
-h.264有关的"专利池"。任何企业要使用h.264必须要想MPEG-LA申请许可证。MPEG-LA规定,任何放到互联网上免费播放的视频都可以无偿
+h.264有关的"专利池"。任何企业要使用h.264必须要向MPEG-LA申请许可证。MPEG-LA规定,任何放到互联网上免费播放的视频都可以无偿
 获得许可证。但是这种许可证并不是永久免费的。也许未来的某一天MPEG-LA就会对其进行收费。一些主要的大公司，比如苹果和微软，
 它们本身就是MPEG-LA"专利池"的所有者，所以很自然safari和ie就支持h.264视频的播放。
+
+一些人对这种情况感到不满，于是他们开发了一种没有专利的视频格式，就是Theora。Theora的主要开发者也是Ogg Vorbis(一种
+开源的、无专利的音频格式)。从Theora1.1开始，其编码效果已经不逊于h.264,尤其在低码率的情况下。但是Theora的使用并不是
+很广泛，基于Theora的硬件解码器也很少。这是因为没有一家公司愿意承担Theora的专利责任，也许未来某一天就会惹上专利官司，
+而且像苹果、微软已经是MPEG-LA"专利池"的所有者。像firefox这种没有资源购买h.264许可证的开源浏览器使用Theora是个不错的
+选择。
+
+Google收购了On2 Technologies后，将其拥有的VP8视频编码以类似BSD的授权开源。并基于MKV开发了一种新的容器格式WebM,
+WebM采用VP8及后续VP9视频编解码器和Vorbis音频编解码器，重要的是WebM也是开源、免费的。同样属于google产品的chrome
+肯定是支持WebM的。由于具有优秀的编码效果并且开源免费，相信未来WebM会得到更多浏览器的支持。
+
+目前各浏览器对各视频格式的支持情况如下：
+
+<table>
+    <tr>
+        <td>格式</td>
+        <td>IE</td>
+        <td>chrome</td>
+        <td>firefox</td>
+        <td>safari</td>
+        <td>opera</td>
+    </tr>
+    <tr>
+        <td>mp4</td>
+        <td>9.0+</td>
+        <td>5.0+</td>
+        <td>No</td>
+        <td>3.0+</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>WebM</td>
+        <td>No</td>
+        <td>6.0</td>
+        <td>4.0+</td>
+        <td>No</td>
+        <td>10.6+</td>
+    </tr>
+    <tr>
+        <td>Ogg</td>
+        <td>No</td>
+        <td>5.0+</td>
+        <td>3.5+</td>
+        <td>No</td>
+        <td>10.5+</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <td>mp4</td>
+        <td>h.264视频、AAC音频</td>
+    </tr>
+    <tr>
+        <td>WebM</td>
+        <td>VP8视频、Vorbis音频</td>
+    </tr>
+    <tr>
+        <td>Ogg</td>
+        <td>Theora视频、Vorbis音频</td>
+    </tr>
+</table>
+
+## m3u8
+
+m3u8文件是m3u文件的一种，只不过它的编码格式是utf-8。m3u使用Latin-1字符集编码。
+m3u的全称是Moving Picture Experts Group Audio Layer 3 Uniform Resource Locator,即mp3 URL。m3u是纯文本文件，可以理解为
+简单的播放列表。m3u文件里存放的是一个一个的视频地址。打开文件编辑器，输入几首硬盘上的mp3文件路径(比如~/sing-1.mp3), 
+每个文件一行，然后将文件保存为list.m3u,用关联的播放器就可以打开这个播放列表进行播放。
+
+### m3u8文件格式解析
+
+<pre>
+#EXTM3U  标头，此句必须在文件的第一行 
+#EXT-X-VERSION  该属性是可选的
+#EXT-X-STREAM-INF {属性}
+    BANDWIDTH       指定码率 
+    PROGRAM-ID      唯一ID 
+    CODECS          指定流的编码类型 
+#EXT-X-TARGETDURATION   定义每个视频文件的最大的持续时间。 
+#EXT-X-MEDIA-SEQUENCE   定义当前m3u8文件中第一个文件的序列号，每个视频文件在m3u8文件中都有固定
+                        唯一的序列号 ，该序列号用于在MBR时切换码率进行对齐。 如果没有默认是0
+#EXT-X-KEY 表示怎么对视频进行解码。
+#EXT-X-PROGRAM-DATE-TIME    第一个文件的绝对时间 
+#EXT-X-ALLOW-CACHE  是否允许cache。 
+#EXT-X-ENDLIST 表明m3u8文件的结束。live m3u8没有该tag。 
+#EXT-X-STREAM-INF {属性}
+    BANDWIDTH         指定码率 
+    PROGRAM-ID        唯一ID 
+    CODECS            指定流的编码类型 
+#EXT-X-DISCONTINUITY 当遇到该tag的时候说明以下属性发生了变化 
+</pre>
+
+m3u8文件分为两种: 顶级m3u8文件和二级m3u8文件。
+顶级m3u8文件是一组二级m3u8文件的列表，用于针对不同带宽切换合适的码流。二级m3u8文件里包含的就是真正
+的视频列表。
+
+可以没有顶级m3u8文件，只使用二级m3u8文件。m3u8文件也最多嵌套两层。
+
+<pre>
+顶级m3u8文件:
+#EXTM3U
+#EXT-X-STREAM-INF:PROGRAM-ID=201273221265,BANDWIDTH=358400
+1.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=201273221265,BANDWIDTH=972800
+2.m3u8
+</pre>
+
+客户端可以根据不同的带宽来切换播放1.m3u8和2.m3u8
+
+<pre>
+二级m3u8文件：
+#EXTM3U
+#EXT-X-TARGETDURATION:30
+#EXT-X-VERSION:3
+#EXTINF:10,
+http://123.125.123.82/ipad?file=/5/233/RveYSM3BT9XVjcMMa58RQE.mp4&start=0&end=9.92&ch=tv&cateCode=101100;101107;101111&uid=1408082300056447&plat=h5&pt=2&prod=h5&pg=1&vid=1983841&eye=0&sig=loyj8ZSU2CNsbGb9ygFqvcH-Gey2B6C1
+#EXTINF:26.76,
+http://123.125.123.82/ipad?file=/5/233/RveYSM3BT9XVjcMMa58RQE.mp4&start=9.92&end=36.68&ch=tv&cateCode=101100;101107;101111&uid=1408082300056447&plat=h5&pt=2&prod=h5&pg=1&vid=1983841&eye=0&sig=loyj8ZSU2CNsbGb9ygFqvcH-Gey2B6C1
+#EXTINF:29.84,
+http://123.125.123.82/ipad?file=/5/233/RveYSM3BT9XVjcMMa58RQE.mp4&start=36.68&end=66.52&ch=tv&cateCode=101100;101107;101111&uid=1408082300056447&plat=h5&pt=2&prod=h5&pg=1&vid=1983841&eye=0&sig=loyj8ZSU2CNsbGb9ygFqvcH-Gey2B6C1
+#EXT-X-ENDLIST
+</pre>
+
+#EXTINF: {数值}, 标示当前视频段的时常，这样便于进行进度拖放和切换清晰度后播放进度的定位。
+
+当前国内的主流视频网站都只使用二级m3u8文件，将切换清晰度的功能提供给用户。m3u8文件非常适合cdn的分发。
+
+## 参考资料
+
+[HTML5的视频格式之争](http://www.ruanyifeng.com/blog/2010/05/html5_codec_fight.html)   
+[视频码率](http://baike.baidu.com/view/1319178.htm)   
+[多媒体容器与压缩标准的概念区别](http://www.360doc.com/content/10/1225/14/1053846_81203652.shtml)   
