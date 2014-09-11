@@ -377,7 +377,9 @@ http://123.125.123.82/ipad?file=/5/233/RveYSM3BT9XVjcMMa58RQE.mp4&start=36.68&en
 #EXT-X-ENDLIST
 </pre>
 
+<pre>
 #EXTINF: {数值}, 标示当前视频段的时常，这样便于进行进度拖放和切换清晰度后播放进度的定位。
+</pre>
 
 当前国内的主流视频网站都只使用二级m3u8文件，将切换清晰度的功能提供给用户。m3u8文件非常适合cdn的分发。
 
