@@ -1,0 +1,155 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form,
+fieldset, legend, input, textarea, p, blockquote, th, td{margin:0;padding:0;}
+
+table{border-collapse:collapse;border-spacing:0;}
+caption, th{text-align:left;}
+
+fieldset, img{border:0;}
+abbr, acronym{border:0;font-variant:normal;}
+
+:focus {outline:0 none;}
+
+address, caption, cite, code, dfn, em, strong, th, var{font-style:normal;font-weight:normal;}
+h1, h2, h3, h4, h5, h6{font-size:100%;font-weight:normal;}
+input, textarea, select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+
+input, textarea, select{*font-size:100%;}
+
+ol, ul{list-style:none;}
+
+blockquote, q{quotes:none;}
+blockquote:before, blockquote:after, q:before, q:after {content:'';content:none;}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}
+
+body {
+    color: #333;
+    font-family: hiragino sans gb,microsoft yahei,simsun;
+}
+.area {
+    width: 880px;
+    padding: 0 0 0 100px;
+    margin: 0 auto;
+}
+.header {
+    height: 579px;
+    background: #090b1a url(images/bg1440.jpg) no-repeat center;
+}
+.logo {
+    padding: 125px 0 0;
+}
+.logo-img {
+    width: 176px;
+    height: 83px;
+    background: url(images/logo.png) no-repeat;
+    _background-image: none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/logo.png');
+}
+.slogan {
+    margin: 20px 0 15px 0;
+    color: #fff;
+    font-size: 28px;
+    line-height: 28px;
+}
+.slogan-desc {
+    color: #fff;
+    font-size: 16px;
+    line-height: 16px;
+}
+.btns {
+    margin: 40px 0 0 0;
+    font-size: 0;
+}
+.dl-btn {
+    display: inline-block;
+    width: 190px;
+    height: 70px;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+    /**
+    background: url(images/dl-btns.png) no-repeat;
+    _background-image: none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/dl-btns.png');
+    **/
+}
+.iphone-btn {
+    background: url(images/dl-iphone.png) no-repeat;
+    _background-image: none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/dl-iphone.png');
+}
+.android-btn {
+    background: url(images/dl-android.png) no-repeat;
+    _background-image: none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/dl-android.png');
+}
+.qr-code {
+    margin: 20px 0 0;
+    color: #fff;
+    font-size: 14px;
+}
+.qr-code img {
+    width: 100px;
+    height: 100px;
+}
+.qr-code p {
+    padding: 3px 0 0 13px;
+    font-size: 14px;
+    line-height: 14px;
+    _padding-top: 6px;
+}
+
+.content {
+    background: #f2f2f2;
+}
+.main-wrap {
+    position: relative;
+}
+.bg-phone {
+    position: absolute;
+    right: 77px;
+    top: -486px;
+    width: 205px;
+    height: 550px;
+    background: url(images/phone.png) no-repeat;
+    _background-image: none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/phone.png');
+}
+.main-wrap .space {
+    height: 115px;
+}
+.main {
+    position: relative;
+    height: 1030px;
+    background: url(images/bg-main.png) no-repeat;
+    _background-image: none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/bg-main.png');
+}
+.info-part {
+    position: absolute;
+    font-size: 20px;
+    line-height: 30px;
+}
+.info-part1 {
+    top: 145px;
+    left: 310px;
+    width: 18em;
+}
+.info-part2 {
+    top: 645px;
+    left: 100px;
+    width: 15em;
+}
+
+.footer {
+    height: 80px;
+    padding: 20px 0 0;
+    color: #999;
+    background: #000;
+}
+.copyright, .contact {
+    text-align: center;
+    font-size: 12px;
+}
+.copyright {
+    padding: 0 0 10px;
+}
