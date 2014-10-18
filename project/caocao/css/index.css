@@ -77,10 +77,22 @@ body {
     _background-image: none;
     _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/dl-iphone.png');
 }
+.iphone-btn:hover,
+.iphone-btn:active {
+    background: url(images/dl_iphone_hover.png) no-repeat;
+    _background-image: none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/images/dl_iphone_hover.png');
+}
 .android-btn {
     background: url(images/dl-android.png) no-repeat;
     _background-image: none;
     _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/dl-android.png');
+}
+.android-btn:hover,
+.android-btn:active {
+    background: url(images/dl_android_hover.png) no-repeat;
+    _background-image: none;
+    _filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://10.11.20.173/code/css/images/images/dl_android_hover.png');
 }
 .qr-code {
     margin: 20px 0 0;
