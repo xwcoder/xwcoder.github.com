@@ -41,6 +41,14 @@ a:active {
     outline: none;
 }
 
+.footer,
+.func-btns-area {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 @media screen and (min-width: 600px ) {
     body {
         font-size: 24px;
@@ -313,7 +321,7 @@ a:active {
     }
     .func-btn {
         display: block;
-        width: 286px;
+        width: 263px;
         height: 90px;
         font-size: 30px;
         line-height: 90px;
@@ -339,7 +347,11 @@ a:active {
     .func-dl-btn:active {
         background: #f9ce23;
     }
+    .content-list {
+        margin-bottom: 160px;
+    }
 }
+
 @media screen and (max-width:599px) {
     .corp-section {
         height: 120px;
@@ -633,5 +645,9 @@ a:active {
     .func-dl-btn:hover,
     .func-dl-btn:active {
         background: #f9ce23;
+    }
+
+    .content-list {
+        margin-bottom: 80px;
     }
 }

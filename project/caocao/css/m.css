@@ -38,11 +38,31 @@ a:active {
     outline: none;
 }
 
+.sec1 {
+    background-color: #edc060;
+    background-image: url(images/m/sec1@2x.png);
+}
+.sec2 {
+    background-color: #f38f5d;
+    background-image: url(images/m/sec2@2x.png);
+}
+.sec3 {
+    background-color: #98d4c8;
+    background-image: url(images/m/sec3@2x.png);
+}
+.sec1, .sec2, .sec3 {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.header {
+    background-image: url(images/m/bg@2x.png);
+    background-size: cover;
+}
+
 @media screen and (min-width: 600px ) {
     .header {
         height: 600px;
-        background-image: url(images/m/bg@2x.png);
-        background-size: cover;
     }
     .logo {
         width: 130px;
@@ -114,17 +134,8 @@ a:active {
     }
 
     .sec1, .sec2, .sec3 {
-        height: 250px;
-        background-size: cover;
-    }
-    .sec1 {
-        background-image: url(images/m/sec1@2x.png);
-    }
-    .sec2 {
-        background-image: url(images/m/sec2@2x.png);
-    }
-    .sec3 {
-        background-image: url(images/m/sec3@2x.png);
+        height: 500px;
+        background-size: 640px 500px;
     }
     .sec {
         height: 1500px;
@@ -146,11 +157,9 @@ a:active {
     }
 }
 
-@media screen and (max-width: 599px) {
+@media screen and (max-width: 600px) {
     .header {
         height: 450px;
-        background-image: url(images/m/bg@2x.png);
-        background-size: cover;
     }
     .logo {
         width: 172px;
@@ -222,17 +231,7 @@ a:active {
     }
 
     .sec1, .sec2, .sec3 {
-        height: 250px;
-        background-size: cover;
-    }
-    .sec1 {
-        background-image: url(images/m/sec1@2x.png);
-    }
-    .sec2 {
-        background-image: url(images/m/sec2@2x.png);
-    }
-    .sec3 {
-        background-image: url(images/m/sec3@2x.png);
+        height: 468px;
     }
     .sec {
         height: 1125px;
@@ -255,11 +254,15 @@ a:active {
 
 }
 
+@media screen and (max-width: 480px) {
+    .sec1, .sec2, .sec3 {
+        height: 375px;
+    }
+}
+
 @media screen and (max-width: 360px) {
     .header {
         height: 300px;
-        background-image: url(images/m/bg@2x.png);
-        background-size: cover;
     }
     .logo {
         width: 65px;
@@ -331,17 +334,7 @@ a:active {
     }
 
     .sec1, .sec2, .sec3 {
-        height: 250px;
-        background-size: cover;
-    }
-    .sec1 {
-        background-image: url(images/m/sec1@2x.png);
-    }
-    .sec2 {
-        background-image: url(images/m/sec2@2x.png);
-    }
-    .sec3 {
-        background-image: url(images/m/sec3@2x.png);
+        height: 281px;
     }
     .sec {
         height: 844px;
@@ -361,14 +354,11 @@ a:active {
     .copyright {
         padding: 0 0 5px;
     }
-
 }
 
 @media screen and (max-width:320px) {
     .header {
         height: 300px;
-        background-image: url(images/m/bg@2x.png);
-        background-size: cover;
     }
     .logo {
         width: 65px;
@@ -441,16 +431,6 @@ a:active {
 
     .sec1, .sec2, .sec3 {
         height: 250px;
-        background-size: cover;
-    }
-    .sec1 {
-        background-image: url(images/m/sec1@2x.png);
-    }
-    .sec2 {
-        background-image: url(images/m/sec2@2x.png);
-    }
-    .sec3 {
-        background-image: url(images/m/sec3@2x.png);
     }
     .sec {
         height: 750px;
