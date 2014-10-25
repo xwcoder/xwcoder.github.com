@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="css/m1.css">
+    <script src="js/zepto.js"></script>
+    <script src="js/iscroll-probe.js"></script>
 </head>
 <body>
     <div class="corp-section">
@@ -25,74 +27,95 @@
             <div class="praise-item praise-bad"><span class="praise-logo"></span><span class="praise-num">0</span><span>差评</span></div>
         </div>
     </div>
-    <div class="content-list">
-        <div class="content-area">
-            <div class="content">这前段时间在微博上看到一条消息：马云从来未用过淘宝和支付宝。以往对于马云的认知又有了新的颠覆。</div>
-            <div class="content-info">
-                <div class="content-city-area">
-                    <div class="content-avatar"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-city">北京</div>
+    <div id="content-list-wrapper" class="content-list-wrapper">
+        <div class="scroll">
+            <div class="content-list">
+                <div class="content-area">
+                    <div class="content">这前段时间在微博上看到一条消息：马云从来未用过淘宝和支付宝。以往对于马云的认知又有了新的颠覆。</div>
+                    <div class="content-info">
+                        <div class="content-city-area">
+                            <div class="content-avatar"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-city">北京</div>
+                        </div>
+                        <div class="content-comment-area">
+                            <div class="content-comment-heart">
+                                <div class="content-comment-heart-logo"></div>
+                                <div class="content-comment-heart-num">38K</div>
+                            </div>
+                            <div class="content-comment-info">
+                                <div class="content-comment-info-logo"></div>
+                                <div class="content-comment-info-num">755</div>
+                            </div>
+                            <div class="content-more"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="content-comment-area">
-                    <div class="content-comment-heart">
-                        <div class="content-comment-heart-logo"></div>
-                        <div class="content-comment-heart-num">38K</div>
+                <div class="content-area">
+                    <div class="content">这前段时间在微博上看到一条消息：马云从来未用过淘宝和支付宝。以往对于马云的认知又有了新的颠覆。</div>
+                    <div class="content-info">
+                        <div class="content-city-area">
+                            <div class="content-avatar"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-city">北京</div>
+                        </div>
+                        <div class="content-comment-area">
+                            <div class="content-comment-heart">
+                                <div class="content-comment-heart-logo"></div>
+                                <div class="content-comment-heart-num">38K</div>
+                            </div>
+                            <div class="content-comment-info">
+                                <div class="content-comment-info-logo"></div>
+                                <div class="content-comment-info-num">755</div>
+                            </div>
+                            <div class="content-more"></div>
+                        </div>
                     </div>
-                    <div class="content-comment-info">
-                        <div class="content-comment-info-logo"></div>
-                        <div class="content-comment-info-num">755</div>
+                </div>
+                <div class="content-area">
+                    <div class="content">这前段时间在微博上看到一条消息：马云从来未用过淘宝和支付宝。以往对于马云的认知又有了新的颠覆。</div>
+                    <div class="content-info">
+                        <div class="content-city-area">
+                            <div class="content-avatar"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-heart"></div>
+                            <div class="content-city">北京</div>
+                        </div>
+                        <div class="content-comment-area">
+                            <div class="content-comment-heart">
+                                <div class="content-comment-heart-logo"></div>
+                                <div class="content-comment-heart-num">38K</div>
+                            </div>
+                            <div class="content-comment-info">
+                                <div class="content-comment-info-logo"></div>
+                                <div class="content-comment-info-num">755</div>
+                            </div>
+                            <div class="content-more"></div>
+                        </div>
                     </div>
-                    <div class="content-more"></div>
                 </div>
             </div>
-        </div>
-        <div class="content-area">
-            <div class="content">这前段时间在微博上看到一条消息：马云从来未用过淘宝和支付宝。以往对于马云的认知又有了新的颠覆。</div>
-            <div class="content-info">
-                <div class="content-city-area">
-                    <div class="content-avatar"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-city">北京</div>
+            <div class="loading-area">
+                <div class="spinner">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                    <div class="bar bar4"></div>
+                    <div class="bar bar5"></div>
+                    <div class="bar bar6"></div>
+                    <div class="bar bar7"></div>
+                    <div class="bar bar8"></div>
+                    <div class="bar bar9"></div>
+                    <div class="bar bar10"></div>
+                    <div class="bar bar11"></div>
+                    <div class="bar bar12"></div>
                 </div>
-                <div class="content-comment-area">
-                    <div class="content-comment-heart">
-                        <div class="content-comment-heart-logo"></div>
-                        <div class="content-comment-heart-num">38K</div>
-                    </div>
-                    <div class="content-comment-info">
-                        <div class="content-comment-info-logo"></div>
-                        <div class="content-comment-info-num">755</div>
-                    </div>
-                    <div class="content-more"></div>
-                </div>
-            </div>
-        </div>
-        <div class="content-area">
-            <div class="content">这前段时间在微博上看到一条消息：马云从来未用过淘宝和支付宝。以往对于马云的认知又有了新的颠覆。</div>
-            <div class="content-info">
-                <div class="content-city-area">
-                    <div class="content-avatar"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-heart"></div>
-                    <div class="content-city">北京</div>
-                </div>
-                <div class="content-comment-area">
-                    <div class="content-comment-heart">
-                        <div class="content-comment-heart-logo"></div>
-                        <div class="content-comment-heart-num">38K</div>
-                    </div>
-                    <div class="content-comment-info">
-                        <div class="content-comment-info-logo"></div>
-                        <div class="content-comment-info-num">755</div>
-                    </div>
-                    <div class="content-more"></div>
-                </div>
+                <div class="more-txt">加载更多...</div>
             </div>
         </div>
     </div>
@@ -100,5 +123,68 @@
         <a href="#" class="func-btn func-open-btn">打开本地应用</a>
         <a href="#" class="func-btn func-dl-btn">没安装去下载</a>
     </div>
+    <script>
+    var iscroll = new IScroll( '#content-list-wrapper', { probeType: 1} );
+    var elLoading = $( '.loading-area' );
+    var preLoading = false;
+    var isLoading = false;
+
+    iscroll.on( 'scroll', function () {
+
+        if ( Math.abs( this.y ) - Math.abs( this.maxScrollY ) > 20 ) {
+            if ( !isLoading ) {
+                preLoading = true;
+                elLoading.show();
+                iscroll.refresh();
+            }
+        }
+
+    } );
+    iscroll.on( 'scrollEnd', function () {
+        if ( preLoading ) {
+            preLoading = false;
+            loadData();
+        }
+    } );
+
+    var loadData = function () {
+        loading = true;
+        setTimeout( function () {
+            loadDataEnd();
+        }, 500 );
+    };
+
+    var loadDataEnd = function () {
+        preLoading = false;
+        loading = false;
+        var html = '<div class="content-area">' +
+            '<div class="content">这前段时间在微博上看到一条消息：马云从来未用过淘宝和支付宝。以往对于马云的认知又有了新的颠覆。</div>' +
+            '<div class="content-info">' +
+                '<div class="content-city-area">' +
+                    '<div class="content-avatar"></div>' +
+                    '<div class="content-heart"></div>' +
+                    '<div class="content-heart"></div>' +
+                    '<div class="content-heart"></div>' +
+                    '<div class="content-city">杭州</div>' +
+                '</div>' +
+                '<div class="content-comment-area">' +
+                    '<div class="content-comment-heart">' +
+                        '<div class="content-comment-heart-logo"></div>' +
+                        '<div class="content-comment-heart-num">38K</div>' +
+                    '</div>' +
+                    '<div class="content-comment-info">' +
+                        '<div class="content-comment-info-logo"></div>' +
+                        '<div class="content-comment-info-num">755</div>' +
+                    '</div>' +
+                    '<div class="content-more"></div>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+
+        elLoading.hide();
+        $( '.content-list' ).append( html );
+        iscroll.refresh();
+    };
+    </script>
 </body>
 </html>
