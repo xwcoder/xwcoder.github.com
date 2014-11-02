@@ -57,6 +57,7 @@ a:active {
 }
 .content-list-wrapper {
     position: absolute; 
+    top: 0;
     left: 0;
     width: 100%;
     overflow: hidden;
@@ -412,7 +413,6 @@ div.spinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -10px); -we
     **/
 
     .content-list-wrapper {
-        top: 240px;
         bottom: 160px;
     }
 
@@ -420,10 +420,6 @@ div.spinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -10px); -we
         position: absolute;
         top: 0;
         bottom: 160px;
-    }
-
-    .comment-list-area {
-        max-height: 580px;
     }
 }
 
@@ -723,7 +719,6 @@ div.spinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -10px); -we
     }
 
     .content-list-wrapper {
-        top: 120px;
         bottom: 80px;
     }
 
@@ -746,9 +741,5 @@ div.spinner div.bar12 {-webkit-transform:rotate(330deg) translate(0, -10px); -we
         position: absolute;
         top: 0;
         bottom: 80px;
-    }
-    
-    .comment-list-area {
-        max-height: 334px;
     }
 }
