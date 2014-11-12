@@ -1,11 +1,11 @@
 ---
 layout: post
-title: 移动web开发——像素
+title: 移动web开发—像素
 published: true
 tags: [像素 px ppi dpi Retina]
 ---
 
-# 移动web开发——像素
+# 移动web开发—像素
 
 熟悉桌面web开发的朋友对于像素(px)都不陌生，在桌面浏览器里我们经常使用px对页面
 进行布局， 这对于精确控制页面非常有效，一个<code>font-size: 14px;</code>的文字在各桌面
@@ -72,7 +72,7 @@ Retina是苹果注册的命名，其他厂商只能使用类似“HI-DPI”等�
 
 ### css像素
 
-相对于硬件像素，在web开发中还有一个更常用的概念——css像素。css像素是与屏幕无关的，这意味着css像素与设备像素可能不是一一对应的。
+相对于硬件像素，在web开发中还有一个更常用的概念——css像素。css像素是一个抽象的概念，它与屏幕无关，这意味着css像素与设备像素可能不是一一对应的。
 在多数非Retina屏的桌面设备上，“正常状态”下一个css像素对应一个硬件像素。在桌面浏览器端“正常状态”是指缩放为100%。
 
 在一个缩放100%的页面上放置一个128px * 128px的元素，然后将页面放大到200%，元素的大小变成了以前的4倍，占据256px * 256px的大小，
@@ -92,12 +92,35 @@ Retina是苹果注册的命名，其他厂商只能使用类似“HI-DPI”等�
 
 ![in](/imgs/csspixels_in.gif)    
 
-在Retina设备上，一个css像素可能会对应多个硬件像素，这一点对于web开发和设计来说非常重要。
+默认情况下，在高清设备上，一个css像素可能会对应多个硬件像素，或者表述为用多个硬件像素显示一个css像素。
+这一点对于web开发和设计来说非常重要，否则开发工作就会变得复杂许多。
 
-举例来说，iPhone 3GS上1px=0.156mm，而在iPhone 4/S上这个值减小了一半，只有0.078mm，同样一个20px * 20px的按钮，渲染在iPhone 4/S
-上只有iphone 3G/S上的1/4大小。
+假设iPhone 3G/S和iPhone 4/S上一个css像素对应一个硬件像素，iPhone 3G/S上1px=0.156mm，
+而在iPhone 4/S上这个值减小了一半，只有0.078mm，同样一个20px * 20px的按钮，渲染在iPhone 4/S上
+只有iphone 3G/S上的1/4大小。也就是说PPI越高，文字和按钮也越小越难看清。
+
+为了解决这个问题，这些移动设备都会将自己的分辨率“谎报”成更小的值，像文章开头提到的iPhone 4/S的硬件分辨率
+是640 * 960，但是通过<code>screen.width</code>和<code>screen.height</code>取到的却是320 * 640，也就是说一个css像素对应两个硬件像素。
+
+<img width="100%" src="/imgs/px-px.jpeg" alt="">
+
+在开发时，依然像平时一样通过css像素设置元素大小，<code>.btn{width: 20px; height: 20px}</code>，设备在背后会用
+40 * 40个硬件像素对其进行渲染，然后我们看到的按钮就是正常大小。
+
+前文在讲参考像素时讲过在手机上一个像素的大小为0.148mm是比较适合阅读的。
+
+<img width="100%" src="/imgs/px-02.jpeg" alt="">
+
+<img width="100%" src="/imgs/px-03.jpeg" alt="">
+
+为了达到适合阅读的目的，不同PPI设备的硬件像素和css像素都有一定的比例关系。iPhone 4/S的硬件像素(640 * 960)
+与css像素(320 * 480)的比值是2，即一个css像素的大小为0.156mm(2个硬件像素)，这是比较理想的适合阅读的尺寸。
+
+## device-pixel-ratio
+
+iPhone 4/S的硬件像素与css像素的比值是2，其实就是就“设备像素比”(device-pixel-ratio)的概念。
 
 ## DP、PT、SP
 
-## device-pixel-ratio
+## 图片显示
 
