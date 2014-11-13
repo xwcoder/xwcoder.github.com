@@ -7,9 +7,17 @@ tags: [像素 px ppi dpi Retina]
 
 # 移动web开发—像素
 
+这篇东西主要参考以下文章：
+
+* Sebastien Gabriel aka [《DESIGNER'S GUIDE TO DPI》](http://sebastien-gabriel.com/designers-guide-to-dpi/home)
+* ppk [《A pixel is not a pixel is not a pixel》](http://www.quirksmode.org/blog/archives/2010/04/a_pixel_is_not.html)
+* 李松峰 [《响应式Web设计》](http://wenku.baidu.com/view/4a5e2e6d783e0912a2162a85.html)
+* SCOTT KELLUM [《A Pixel Identity Crisis》](http://alistapart.com/article/a-pixel-identity-crisis)
+* 张鑫旭 [《视网膜New iPad与普通分辨率iPad页面的兼容处理》](http://www.zhangxinxu.com/wordpress/2012/10/new-pad-retina-devicepixelratio-css-page/)
+
 熟悉桌面web开发的朋友对于像素(px)都不陌生，在桌面浏览器里我们经常使用px对页面
 进行布局， 这对于精确控制页面非常有效，一个<code>font-size: 14px;</code>的文字在各桌面
-浏览器上都显示成几乎相同的大小。直观上，一个像素就是显示器上的一个点，
+浏览器上都显示成几乎相同的大小。直观上，一个像素点就是显示器上的一个点，
 我们就用这些点来控制页面上的元素，这理解上去如此自然，以至于我们从不用认真思考它。
 
 但是随着移动web的到来，问题开始变的复杂。手机如此小的屏幕却拥有如此高的分辨率，
@@ -26,23 +34,23 @@ px是逻辑长度单位，并不是我们真实世界里能感知到大小的物
 
 ## PPI和DPI
 
-PPI是英文Pixels Per Inch的缩写，由字面意思很好理解——每英寸的像素数量，即像素密度。计算公式也很简单，
+PPI是英文Pixels Per Inch的缩写，由字面意思很好理解—每英寸的像素数量，即像素密度。计算公式也很简单：
 
 ![ppi](/imgs/ppi-formular.jpg)
 
 (X：长度像素数；Y：宽度像素数；Z：屏幕尺寸即对角线长度)
 
-以毫米mm为单位那么一个像素的大小就是25.4/PPI(1in=25.4mm)。iPhon 4/S的PPI是326，则像素大小为25.4/326 ~= 0.078mm。
+那么以毫米mm为单位一个像素的大小就是<code>1px=25.4/PPI(1in=25.4mm)</code>。iPhone 4/S的PPI是326，则像素大小为<code>25.4/326 ~= 0.078mm</code>。
 
 <img width="100%" src="/imgs/px-size.jpeg" alt="">
 
 对于非Retina屏的桌面设备，像素密度通常在72-120之间。
 
-一般桌面浏览器的默认字体大小是16px，即1em=16px。在印刷领域，m是英文中最宽的字母，所以用em来表示印刷的字宽，标准是12pt。
+说一个题外，一般桌面浏览器的默认字体大小是16px，即1em=16px。在印刷领域，m是英文中最宽的字母，所以用em来表示印刷的字宽，标准是12pt。
 1pt=1/72in，window桌面显示设备的默认PPI是96，即1px=1/96in，简单换算1em=16px。不同的设备默认字体大小会有例外，比如kindle touch
-的默认字体大小是26px。
+的默认字体大小是26px，即1em=26px。
 
-DPI(Dots Per Inch)是印刷行业使用的概念，表示打印机每英寸可以喷墨的点数。PPI的概念就是借鉴自DPI。
+DPI(Dots Per Inch)是印刷行业使用的概念，表示打印机每英寸可以喷墨的点数。PPI的概念就是借鉴自DPI。在显示器上通常可以混用这两个概念。
 
 ## Retina屏
 
@@ -59,7 +67,7 @@ DPI(Dots Per Inch)是印刷行业使用的概念，表示打印机每英寸可�
 
 Retina是苹果注册的命名，其他厂商只能使用类似“HI-DPI”等名称，不过意思是一样的。
 
-### 参照像素
+## 参照像素
 
 既然px不是物理单位，而且PPI越高px尺寸越小，在各厂商都在追求高PPI的今天1px到底要多大才适合人类阅读呢。w3c为所有基于像素
 的度量定义了一个标准，叫做[参考像素](http://www.w3.org/TR/CSS2/syndata.html#length-units)。
@@ -70,17 +78,17 @@ Retina是苹果注册的命名，其他厂商只能使用类似“HI-DPI”等�
 
 参照像素是与硬件像素无关的，这样基于像素的设计就不必局限在硬件像素上。同样的参照像素，在phone上就会很小，而在投影设备上就会很大。
 
-### css像素
+## css像素
 
-相对于硬件像素，在web开发中还有一个更常用的概念——css像素。css像素是一个抽象的概念，它与屏幕无关，这意味着css像素与设备像素可能不是一一对应的。
-在多数非Retina屏的桌面设备上，“正常状态”下一个css像素对应一个硬件像素。在桌面浏览器端“正常状态”是指缩放为100%。
+相对于硬件像素，在web开发中还有一个更常用的概念—css像素。css像素是一个抽象的概念，它与屏幕无关，这意味着css像素与设备像素可能不是一一对应的。
+在多数非Retina屏的桌面设备上，“正常状态”下一个css像素对应一个硬件像素。这里说的“正常状态”在桌面浏览器上是指缩放为100%。
 
 在一个缩放100%的页面上放置一个128px * 128px的元素，然后将页面放大到200%，元素的大小变成了以前的4倍，占据256px * 256px的大小，
 但是在css定义上元素还是128px * 128px, 这时一个css像素实际上等于两个硬件像素。
 
 通过图示来解释这个过程。
 
-一个css像素等于一个硬件像素，css像素与硬件像素重叠。
+100%时，一个css像素等于一个硬件像素，css像素与硬件像素重叠。
 
 ![100%](/imgs/csspixels_100.gif)    
 
@@ -93,34 +101,142 @@ Retina是苹果注册的命名，其他厂商只能使用类似“HI-DPI”等�
 ![in](/imgs/csspixels_in.gif)    
 
 默认情况下，在高清设备上，一个css像素可能会对应多个硬件像素，或者表述为用多个硬件像素显示一个css像素。
-这一点对于web开发和设计来说非常重要，否则开发工作就会变得复杂许多。
+这一点对于web开发和设计来说非常重要，否则开发和设计工作就会变得复杂许多。
 
-假设iPhone 3G/S和iPhone 4/S上一个css像素对应一个硬件像素，iPhone 3G/S上1px=0.156mm，
+假设iPhone 3G/S和iPhone 4/S上都是一个css像素对应一个硬件像素，iPhone 3G/S上1px=0.156mm，
 而在iPhone 4/S上这个值减小了一半，只有0.078mm，同样一个20px * 20px的按钮，渲染在iPhone 4/S上
-只有iphone 3G/S上的1/4大小。也就是说PPI越高，文字和按钮也越小越难看清。
+只有iphone 3G/S上的1/4大小。也就是说PPI越高，文字和按钮也越小越难看清。我们就不得不针对iPhone 4/S对字体大小进行调整。
 
-为了解决这个问题，这些移动设备都会将自己的分辨率“谎报”成更小的值，像文章开头提到的iPhone 4/S的硬件分辨率
-是640 * 960，但是通过<code>screen.width</code>和<code>screen.height</code>取到的却是320 * 640，也就是说一个css像素对应两个硬件像素。
+为了解决这个问题，这些高清设备都会将自己的分辨率“谎报”成更小的值，像文章开头提到的iPhone 4/S的硬件分辨率
+是640 * 960，但是报告给浏览器的却是320 * 640，也就是说一个css像素对应两个硬件像素。
+
+在开发时，依然像平时一样通过css像素设置元素大小，<code>.btn{width: 20px; height: 20px}</code>，iPhone 4/S在背后会用
+40 * 40个硬件像素对其进行渲染，然后我们看到的按钮就是正常大小。
+对同样一段文本使用css定义<code>.txt{font-size:16px;}</code>，在iPhone 3G/S和iPhone 4/S上看到的字体大小也是一样的。
 
 <img width="100%" src="/imgs/px-px.jpeg" alt="">
 
-在开发时，依然像平时一样通过css像素设置元素大小，<code>.btn{width: 20px; height: 20px}</code>，设备在背后会用
-40 * 40个硬件像素对其进行渲染，然后我们看到的按钮就是正常大小。
-
-前文在讲参考像素时讲过在手机上一个像素的大小为0.148mm是比较适合阅读的。
+前文在讲“参照像素”时讲过在手机上一个像素的大小为0.148mm是比较适合阅读的。
 
 <img width="100%" src="/imgs/px-02.jpeg" alt="">
 
 <img width="100%" src="/imgs/px-03.jpeg" alt="">
 
-为了达到适合阅读的目的，不同PPI设备的硬件像素和css像素都有一定的比例关系。iPhone 4/S的硬件像素(640 * 960)
+为了达到适合阅读的目的，不同PPI的设备都会参考“参照像素”对css像素进行调整，这样硬件像素和css像素之间就有一定的比例关系。iPhone 4/S的硬件像素(640 * 960)
 与css像素(320 * 480)的比值是2，即一个css像素的大小为0.156mm(2个硬件像素)，这是比较理想的适合阅读的尺寸。
 
 ## device-pixel-ratio
 
 iPhone 4/S的硬件像素与css像素的比值是2，其实就是就“设备像素比”(device-pixel-ratio)的概念。
 
-## DP、PT、SP
+> window.devicePixelRatio是设备硬件像素和设备独立像素(device-independent pixels, dip/dp)的比值。公式：window.devicePixelRatio=硬件像素/dip。
 
-## 图片显示
+设备无关像素DIP/DP也是为了便于开发和设计提出的抽象概念，类似于web开发中的css像素概。DP常用于Android中，ios中对应的概念是PT。
 
+iPhone 3G/S的devicePixelRatio是1，iPhone 4/S、iPhone 5/C/S、iPhone 6的devicePixelRatio是2，iPhone 6 Plus的devicePixelRatio是3。
+iPad 1 & 2、iPad Mini 1的devicePixelRatio是1，iPad 3 & 4 / Air和iPad Mini 2的devicePixelRatio是2。
+
+<img width="100%" src="/imgs/ios-01.png" alt="">
+<img width="100%" src="/imgs/ios-01-1.png" alt="">
+<img width="100%" src="/imgs/ios-02.png" alt="">
+<img width="100%" src="/imgs/ios-02.png" alt="">
+
+不同于其他iPhone，iPhone 6 Plus在显示上有一点特别，它会对元素进行向下采样。
+
+比如你在一个1334 * 750px的画布上设计一张图片，这在iPhone 6上显示没有问题，iPhone 6的硬件像素就是1334 * 750px；但同样的设计在iPhone 6 Plus
+上就需要在2208 * 1242px画布上进行设计，虽然iPhone 6 Plus的硬件像素是1920 * 1080px，iPhone 6 Plus会对其进行向下采样显示。
+
+<img width="100%" src="/imgs/ios-01-2.png" alt="">
+<img src="/imgs/ios-01-3.png" alt="">
+
+这样在计算上会有半个像素的情况，造成显示上出现毛刺，但是iPhone 6 Plus的PPI足够高，如果不是在非常近的距离观看是察觉不到这些小瑕疵的。
+
+相较于ios设备，Android设备的情况要复杂的多，因为Android是开源系统，OEM厂商可以对像素进行“随心所欲”的处理。比如，最早的Galaxy Tab
+和Kindle Fire的屏幕尺寸和分辨率是一样的，但Galaxy Tab根据参照像素进行了调整，每个像素是Kindle Fire的1.5倍，Fire使用的是硬件像素。
+开发人员可能会以为屏幕一样大，而且浏览器内核都是WebKit，那么网站呈现就会一样。但是事实并非如此，对于网站来说，Galaxy Tab是400px * 683px，而Kindle Fire是600px * 1024px。
+
+<img width="100%" src="/imgs/standard.jpg" alt="">
+
+## DIP/DP、PT
+
+前文已经提到了设备独立像素的概念(device-independent pixels, dip/dp)，Android app中使用DIP/DP，ios app使用PT。有了DP就可以方便的对元素进行度量，
+例如一个44 * 44dp的元素，在非Retina屏中等于44 * 44px，在Retina屏中等于88 * 88px。
+
+<img width="100%" src="/imgs/dp-01.png" alt="">
+<img width="100%" src="/imgs/ios-04.png" alt="">
+
+### Android设备的PPI
+
+由于Android是开源系统，需要适配的PPI非常多，划分也非常细：
+
+- ldpi (low) ~120dpi
+- mdpi (medium) ~160dpi
+- hdpi (high) ~240dpi
+- xhdpi (extra-high) ~320dpi
+- xxhdpi (extra-extra-high) ~480dpi
+- xxxhdpi (extra-extra-extra-high) ~640dpi
+
+<img width="100%" src="/imgs/android-01.png" alt="">
+<img width="100%" src="/imgs/android-02.png" alt="">
+
+可以看出mdpi大致与iPhone 3G/S的PPI相同，xhdpi大致与iPhone 4/S的PPI相同。
+
+在开发Android app时只需要把不同dpi下的资源放到对应的目录就可以了，Android会根据dpi自动选择资源：
+
+- res/drawable-mdpi/my_icon.png         // bitmap for medium-density
+- res/drawable-hdpi/my_icon.png         // bitmap for high-density
+- res/drawable-xhdpi/my_icon.png        // bitmap for extra-high-density
+- res/drawable-xxhdpi/my_icon.png       // bitmap for extra-extra-high-density
+
+## 文字SP
+
+SP（Scale-independent pixel）是缩放无关的像素，与DP和PT一样都是抽象像素，只不过用于描述字体的大小。
+
+Android Design上介绍Android框架使用以下的大小：
+
+<img src="/imgs/android-03.jpg" alt="">
+
+设计时，针对对应的标准（HDPI，XHDPI，XXHDPI），使用不同的px。
+
+<img src="/imgs/android-04.jpg" alt="">
+
+## 网页中的位图显示
+
+位图是由图像像素组成的，每个图像像素都有自己特定的位置和颜色等信息。单位长度内图像像素越多，图像质量越高。
+
+当使用img标签在网页中插入一张位图时，图片的大小是用css像素控制的。
+在非Retina屏幕上100%显示这张图片，一个图像像素对应一个硬件像素，即一个硬件像素渲染一个图像像素，图片就能保真显示。
+但是在Retina屏中，就会用多个硬件像素渲染一个图像像素，例如iPhone 4/S中就会用4个硬件像素点渲染一个图像像素，一个图像像素分成4份，颜色只能
+取近似值，于是图片就模糊了。
+
+<img src="/imgs/bitmap-pixels.png" alt="">
+
+要想图片清晰显示，同时保持在非Retina屏中的视觉尺寸，可以将一张4倍大小的图片缩放到原来的1/4。如果原始图片尺寸是200 * 200px，那么
+就需要一张400 * 400px的图片，同时css定义仍然是<code>img{width: 200px; height: 200px;}</code>。这样一个位图像素就由一个硬件像素来渲染了。
+但是在非Retina屏中，图片被压缩，造成图像像素采样上的浪费。
+
+<img src="/imgs/downsampling.png" alt="">
+
+网页中对于前端渲染的部分可以通过window.devicePixelRatio判断需要加载的图片。对于背景图图片可以使用媒体查询，通过<code>background-size</code>控制。
+例如：
+<pre>
+.bg {
+    background: url(images/bg.png) 0 0 no-repeat;
+    background-size: 837px 455px;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .bg {
+        background-image: url(images/bg@2x.png);
+    }
+}
+</pre>
+
+## 总结
+
+DIP/DP, PT, SP概念主要用于native app开发领域。
+
+在web开中主要用到的是硬件像素和css像素，css像素和硬件像素并不总是一一对应的。
+
+PPI值越高px的尺寸越小，w3c给出了标准[参照像素](http://www.w3.org/TR/CSS2/syndata.html#length-units)。通常Retina设备
+都会参考“参照像素”对css像素进行调整，这时css像素和硬件像素就不是一一对应的，设计和开发按照css像素进行，遇到图片等媒体资源针对不同
+devicePixelRatio的设备进行调整。
