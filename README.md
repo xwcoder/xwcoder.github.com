@@ -5,6 +5,7 @@ personal blog
 
 ##Catalog##
 
+* [2016-04-11  搜狐视频前端基础架构演进](https://github.com/xwcoder/xwcoder.github.com/issues/10)
 * [2016-03-08  开发一个前端组件](https://github.com/xwcoder/xwcoder.github.com/issues/9)
 * [2014-11-13  移动web开发—像素](_posts/2014-11-11-px-concept-in-web-development.md)
 * [2014-09-28  视频文件相关概念](_posts/2014-09-11-video-concept.md)
