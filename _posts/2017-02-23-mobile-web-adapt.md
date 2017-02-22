@@ -89,11 +89,13 @@
 
 这种方式需要控制好断点的粒度，而且不够精确，所以不常用。
 
-#### 方式二：使用js，根据设计稿宽度和`layout viewport`宽度计算
+#### 方式二：使用js，根据设计稿宽度和`<html>`元素的宽度计算
+
+> 默认情况下(不设置`<html>`的宽度)，`<html>`的宽度等于`layout viewport`的宽度。
 
 假设设计稿的宽度是750。
 
-设定`layout viewport`宽度为750px(设计稿的宽度)时，`1rem=100px`，即`<html>`元素的`font-size`大小是100px。这只是个基准值，理论上可以设定为任意大小，之所以设定成100px是为了方便计算。然后根据页面实际的`layout viewport`宽度计算并设置`<html>`的`font-size`。
+设定`layout viewport`宽度为750px(设计稿的宽度)时，`1rem=100px`，即`<html>`元素的`font-size`大小是100px。这只是个基准值，理论上可以设定为任意大小，之所以设定成100px是为了方便计算。然后根据页面的`<html>`宽度计算并设置`<html>`的`font-size`。
 
 ```js
 (function (doc, win) {
@@ -101,7 +103,7 @@
    var docEl = doc.documentElement
 
    function refreshRem () {
-     docEl.style.fontSize = docEl.clientWidth / 750 * 100 + 'px'
+     docEl.style.fontSize = docEl.getBoundingClientRect().width / 750 * 100 + 'px'
    }
 
    refreshRem()
@@ -133,7 +135,7 @@
 }
 ```
 
-还有一种设置基准值的方法：将设计稿等分。例如10等分，那么对于设计稿来说`1rem = 750px / 10 = 75px`，即基准值是`75px`，在实际页面中一样将`layout viewport`10等分：
+还有一种设置基准值的方法：将设计稿等分。例如10等分，那么对于设计稿来说`1rem = 750px / 10 = 75px`，即基准值是`75px`，在实际页面中一样将`<html>`的宽度10等分：
 
 ```js
 (function (doc, win) {
@@ -141,7 +143,7 @@
     var docEl = doc.documentElement
 
     function refreshRem () {
-        docEl.style.fontSize = docEl.clientWidth / 10 + 'px'
+        docEl.style.fontSize = docEl.getBoundingClientRect().width / 10 + 'px'
     }
 
     refreshRem()
@@ -160,7 +162,7 @@
 
 当然，转换工作也可以使用gulp、grunt、webpack等任务/构建工具完成。
 
-由于`rem`的大小是根据`layout viewport`的宽度计算的，所以当页面`resize`，`pageshow`时需要重新计算。
+由于`rem`的大小是根据页面`<html>` 的宽度计算的，所以当页面`resize`，`pageshow`时需要重新计算。
 
 ```js
 var timer
