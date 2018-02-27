@@ -3,8 +3,9 @@ xwcoder.github.com
 
 personal blog
 
-##Catalog##
+## Catalog
 
+* [2018-02-07  前端工程师的价值在降低](https://github.com/xwcoder/xwcoder.github.com/issues/15)
 * [2017-06-02  「keynote」移动web适配](https://github.com/xwcoder/xwcoder.github.com/issues/14)
 * [2017-02-23  移动web开发—适配](https://github.com/xwcoder/xwcoder.github.com/issues/13)
 * [2017-02-22  移动web开发—viewport](https://github.com/xwcoder/xwcoder.github.com/issues/12)
@@ -20,7 +21,7 @@ personal blog
 * [2013-01-17  书评:css设计指南](https://github.com/xwcoder/xwcoder.github.com/issues/2)
 * [2013-01-06  2012总结](https://github.com/xwcoder/xwcoder.github.com/issues/1)
 
-## License ##
+## License
 
 The following directories and their contents are Copyright [xwcoder](https://github.com/xwcoder). You may not reuse anything therein without my permission:
 
