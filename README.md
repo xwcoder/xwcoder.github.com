@@ -6,6 +6,7 @@ personal blog
 ## Catalog
 
 * [2019-08-09  Golang代码组织方式](https://github.com/xwcoder/xwcoder.github.com/issues/17)
+* [2019-05-01 关于TC39 process](https://github.com/xwcoder/xwcoder.github.com/issues/18)
 * [2019-02-14  JavaScript中的Date](https://github.com/xwcoder/xwcoder.github.com/issues/16)
 * [2018-02-07  前端工程师的价值在降低](https://github.com/xwcoder/xwcoder.github.com/issues/15)
 * [2017-06-02  「keynote」移动web适配](https://github.com/xwcoder/xwcoder.github.com/issues/14)
