@@ -1,10 +1,3 @@
----
-layout: post
-title: 输入法概念
-published: true
-tags: [IMF 输入法 输入法概念 IME]
----
-
 ## 写在前面 ##
 输入法只有中日韩这种象形文字语系才需要(CJK only), 西方语系的文字都可以通过键盘直
 接输入。

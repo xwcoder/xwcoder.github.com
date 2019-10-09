@@ -1,9 +1,3 @@
----
-layout: post
-title: 书评：CSS设计指南（第3版）
-published: true
-tags: [css设计指南, 书评]
----
 # 书评：CSS设计指南（第3版）#
 ![stylin with css](http://img3.douban.com/mpic/s24262786.jpg)
 

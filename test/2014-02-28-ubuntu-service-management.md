@@ -1,10 +1,3 @@
----
-layout: post
-title: ubuntu服务管理
-published: true
-tags: [ubuntu linux system service 服务 服务管理]
----
-
 ## System V
 
 linux的启动过程会经过如下几步:

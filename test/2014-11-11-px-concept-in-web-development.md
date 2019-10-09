@@ -1,10 +1,3 @@
----
-layout: post
-title: 移动web开发—像素
-published: true
-tags: [像素 px ppi dpi Retina]
----
-
 # 移动web开发—像素
 
 这篇东西主要参考以下文章：

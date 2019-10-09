@@ -1,10 +1,3 @@
----
-layout: post
-title: 前端工程师的编码问题
-published: true
-tags: [encoding charset unicode ucs UTF-8 UTF-16 编码 字符集]
----
-
 这篇文章分两个部分。第一部分梳理一下字符集和编码的基础知识，比如unicode、ucs、utf-8、utf-16之间的关系，
 在这部分中主要以文本文件为例，相关内容同样适用于字节流,
 第二部分整理一下前端工程师可能会遇到的一些编码问题。我的愿望是想能穷尽所有问题，但是我又知道这是不可能的，

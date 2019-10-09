@@ -1,9 +1,3 @@
----
-layout: post
-title: 视频相关概念
-published: true
-tags: [video-encoding video-concept mp4 h.264]
----
 当我们谈到视频文件时，经常会听到/说到很多名词，像码率、码流、mp4、avi、rmvb、h.264、webM、m3u8等等。
 名词太多，容易混淆。今天来梳理一下视频相关的概念。
 
