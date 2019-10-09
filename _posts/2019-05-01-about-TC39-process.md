@@ -56,4 +56,3 @@ TC39会议必须要评估提交的文档。[stage-0-proposals](https://github.co
 * [The TC39 process for ECMAScript features](http://2ality.com/2015/11/tc39-process.html)
 * [ecma262 repo](https://github.com/tc39/ecma262)
 * [proposals repo](https://github.com/tc39/proposals)
-
