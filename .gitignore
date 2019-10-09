@@ -1,5 +1,5 @@
-.gitignore
 _site
 server
 app.js
 node_modules
+.jekyll-cache/
