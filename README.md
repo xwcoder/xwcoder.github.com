@@ -5,6 +5,7 @@ personal blog
 
 ## Catalog
 
+* [2021-01-06  厘清@babel/preset-env和@babel/plugin-transform-runtime](https://github.com/xwcoder/xwcoder.github.com/issues/23)
 * [2019-08-09  Golang代码组织方式](https://github.com/xwcoder/xwcoder.github.com/issues/17)
 * [2019-05-09  JavaScript引擎的工作流程](https://github.com/xwcoder/xwcoder.github.com/issues/22)
 * [2019-05-09  内存分析相关术语解释](https://github.com/xwcoder/xwcoder.github.com/issues/21)
