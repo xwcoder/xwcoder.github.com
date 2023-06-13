@@ -15,7 +15,7 @@ personal blog
 * [2023-06-12 &emsp; Electron: Processes Communication](https://github.com/xwcoder/xwcoder.github.com/issues/31)
 * [2023-06-12 &emsp; Electron: Process Sandbox](https://github.com/xwcoder/xwcoder.github.com/issues/30)
 * [2023-06-12 &emsp; Electron: Process Model](https://github.com/xwcoder/xwcoder.github.com/issues/29)
-* [2023-06-12 &emsp; VS Code source code analysis](https://github.com/xwcoder/xwcoder.github.com/issues/28)
+* [2023-06-12 &emsp; VS Code analysis](https://github.com/xwcoder/xwcoder.github.com/issues/28)
 * [2023-05-12 &emsp; Presentation of React Server Components: A New Web Paradigm](https://github.com/xwcoder/xwcoder.github.com/issues/27)
 * [2021-04-06 &emsp; 基于Proxy的响应系统原理：100行代码实现一个响应系统](https://github.com/xwcoder/xwcoder.github.com/issues/25)
 * [2021-04-01 &emsp; JavaScript引擎基础原理：Shapes and Inline Caches](https://github.com/xwcoder/xwcoder.github.com/issues/24)
