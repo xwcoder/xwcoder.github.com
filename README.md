@@ -4,6 +4,7 @@ xwcoder.github.com
 personal blog
 
 ## Catalog
+* [2023-12-18 &emsp; Deep Learning Terms](https://github.com/xwcoder/xwcoder.github.com/issues/40)
 * [2023-06-12 &emsp; VS Code: The Startup Process Of The Code Server Web](https://github.com/xwcoder/xwcoder.github.com/issues/39)
 * [2023-06-12 &emsp; VS Code: Remote Development](https://github.com/xwcoder/xwcoder.github.com/issues/38)
 * [2023-06-12 &emsp; VS Code: The Startup Process Of The Desktop Application](https://github.com/xwcoder/xwcoder.github.com/issues/37)
