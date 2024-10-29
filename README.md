@@ -4,6 +4,7 @@ xwcoder.github.com
 personal blog
 
 ## Catalog
+* [2024-10-29 &emsp; Variable-length quantity (VLQ)](https://github.com/xwcoder/xwcoder.github.com/issues/44)
 * [2024-10-23 &emsp; WebSocket Protocol](https://github.com/xwcoder/xwcoder.github.com/issues/43)
 * [2024-06-21 &emsp; Trunk Based Development](https://github.com/xwcoder/xwcoder.github.com/issues/42)
 * [2024-03-31 &emsp; Communicating Software Architecture](https://github.com/xwcoder/xwcoder.github.com/issues/41)
