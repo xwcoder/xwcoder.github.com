@@ -4,6 +4,7 @@ xwcoder.github.com
 personal blog
 
 ## Catalog
+* [2024-11-22 &emsp; 重新认识 `%` 操作符](https://github.com/xwcoder/xwcoder.github.com/issues/47)
 * [2024-11-05 &emsp; VS Code: How to upload File](https://github.com/xwcoder/xwcoder.github.com/issues/46)
 * [2024-11-04 &emsp; VS Code: Transport protocol](https://github.com/xwcoder/xwcoder.github.com/issues/45)
 * [2024-10-29 &emsp; Variable-length quantity (VLQ)](https://github.com/xwcoder/xwcoder.github.com/issues/44)
