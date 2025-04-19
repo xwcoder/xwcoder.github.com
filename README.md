@@ -4,6 +4,7 @@ xwcoder.github.com
 personal blog
 
 ## Catalog
+* [2025-04-19 &emsp; 200行代码使用 Function Calling 实现 code-editing agent](https://github.com/xwcoder/xwcoder.github.com/issues/49)
 * [2025-04-02 &emsp; Proxy & Reflect](https://github.com/xwcoder/xwcoder.github.com/issues/48)
 * [2024-11-22 &emsp; 重新认识 `%` 操作符](https://github.com/xwcoder/xwcoder.github.com/issues/47)
 * [2024-11-05 &emsp; VS Code: How to upload File](https://github.com/xwcoder/xwcoder.github.com/issues/46)
